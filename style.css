@@ -59,3 +59,22 @@ epl-predictor {
   text-align: center;
   margin-top: 50px;
 }
+
+/* Running dog animation */
+.running-dog {
+  position: fixed;
+  white-space: nowrap;
+  animation-name: runAcrossScreen;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  z-index: 9999;
+}
+
+@keyframes runAcrossScreen {
+  from {
+    right: -10vw; /* Start off-screen to the right */
+  }
+  to {
+    right: 100vw; /* End off-screen to the left */
+  }
+}

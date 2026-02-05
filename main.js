@@ -118,22 +118,33 @@ class EPLPredictor extends HTMLElement {
         });
       }
     } else if (predictedTeam === 'Manchester United') {
-      // Trigger "poop rain" if Manchester United is predicted
-      if (window.confetti) {
-        window.confetti({
-          particleCount: 70, // Slightly fewer particles
-          spread: 80, // Wider spread
-          origin: { y: 0 }, // Start from the top
-          gravity: 0.8, // Fall faster
-          ticks: 200, // Longer animation duration
-          shapes: ['text'],
-          shapeOptions: {
-            text: ['💩'] // Poop emoji
-          },
-          scalar: 2 // Make emoji bigger
-        });
-      }
+      // Trigger "dogs running across the screen" if Manchester United is predicted
+      runDogsAnimation();
     }
+  }
+}
+
+function runDogsAnimation() {
+  const numberOfDogs = 7;
+  const dogEmojis = ['🐶', '🐕', '🐩', '🦮', '🐾']; // Different dog emojis for variety
+
+  for (let i = 0; i < numberOfDogs; i++) {
+    const dog = document.createElement('span');
+    dog.textContent = dogEmojis[Math.floor(Math.random() * dogEmojis.length)];
+    dog.classList.add('running-dog');
+    
+    // Randomize starting position and size
+    dog.style.top = `${Math.random() * 80 + 10}vh`; // 10% to 90% of viewport height
+    dog.style.fontSize = `${Math.random() * 2 + 1.5}em`; // 1.5em to 3.5em
+    dog.style.animationDelay = `${Math.random() * 3}s`; // Stagger animation start
+    dog.style.animationDuration = `${Math.random() * 5 + 5}s`; // 5s to 10s animation duration
+
+    document.body.appendChild(dog);
+
+    // Remove the dog after its animation finishes
+    dog.addEventListener('animationend', () => {
+      dog.remove();
+    });
   }
 }
 

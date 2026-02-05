@@ -19,7 +19,8 @@ A simple web application that predicts a random winner for the English Premier L
 - Predicts a random Premier League winner from a predefined list of teams.
 - A "Predict Winner" button to generate a new prediction.
 - **Confetti Animation**: Triggers a confetti animation when "Liverpool" is predicted as the winner.
-- **'Poop Rain' Animation**: Triggers a humorous "poop rain" animation when "Manchester United" is predicted as the winner.
+- **'Poop Rain' Animation**: (Previously implemented, but now replaced) Triggers a humorous "poop rain" animation when "Manchester United" is predicted as the winner.
+- **'Dogs Running' Animation**: Triggers an animation of dogs running across the screen when "Manchester United" is predicted as the winner.
 
 ## Current Task: Change Toggle Button to Icon
 
@@ -44,7 +45,8 @@ A simple web application that predicts a random winner for the English Premier L
 1.  **Modify `index.html`**: (Completed) Added the `canvas-confetti` CDN script.
 2.  **Modify `main.js`**: (Completed) Implemented logic to trigger a confetti animation when "Liverpool" is predicted.
 
-## Current Task: Add 'Poop Rain' Animation for Manchester United
+## Current Task: Change 'Poop Rain' to 'Dogs Running' Animation for Manchester United
 
 ### Plan
-1.  **Modify `main.js`**: (Completed) Implemented logic to trigger a "poop rain" animation when "Manchester United" is predicted.
+1.  **Modify `main.js`**: (Completed) Removed the "poop rain" logic and implemented JavaScript to create and animate dog emojis across the screen.
+2.  **Modify `style.css`**: (Completed) Added CSS for the `.running-dog` class and `@keyframes` animation to facilitate the dog animation.
