@@ -12,7 +12,7 @@ A simple web application that predicts a random winner for the English Premier L
 - A clean and simple design.
 - **Day and Night Mode**: The application will support both day and night themes, allowing users to toggle between them.
 - **Singapore Flag Background**: (Previously implemented, but now replaced) A Singapore flag image was intended to be used as the background.
-- **Pastel Gradient Background**: The application now features a linear gradient background from a light pastel pink (#fce4ec) to a light pastel blue (#e3f2fd), replacing the previous red gradient.
+- **Solid Background Color**: The application now features a solid light grey background color (#f0f0f0), replacing the previous pastel gradient.
 - **Theme Toggle Icon**: The theme toggle button has been replaced with an SVG icon that changes between a sun and moon depending on the current theme.
 
 ### Features
@@ -50,3 +50,8 @@ A simple web application that predicts a random winner for the English Premier L
 ### Plan
 1.  **Modify `main.js`**: (Completed) Removed the "poop rain" logic and implemented JavaScript to create and animate dog emojis across the screen.
 2.  **Modify `style.css`**: (Completed) Added CSS for the `.running-dog` class and `@keyframes` animation to facilitate the dog animation.
+
+## Current Task: Change Background to Solid Color
+
+### Plan
+1.  **Modify `style.css`**: (Completed) Changed the `body` background from the pastel gradient to a solid light grey color (#f0f0f0).
