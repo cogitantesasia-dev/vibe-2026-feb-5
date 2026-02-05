@@ -13,7 +13,8 @@ A simple web application that predicts a random winner for the English Premier L
 - **Day and Night Mode**: The application will support both day and night themes, allowing users to toggle between them.
 - **Singapore Flag Background**: (Previously implemented, but now replaced) A Singapore flag image was intended to be used as the background.
 - **Solid Background Color**: (Previously implemented, but now replaced) The application previously featured a solid light grey background color.
-- **Football Field Background**: The application now features a football field image as its background, scaled to cover the entire viewport.
+- **Football Field Background**: (Previously implemented, but now replaced) The application previously featured a football field image as its background.
+- **Chalet Green Background Color**: The application now features a solid Chalet Green background color (#5A6E41).
 - **Rainbow Predict Button**: The "Predict Winner" button now has a continuously animating rainbow gradient background.
 - **Rainbow Arsenal Prediction**: When "Arsenal" is predicted, the winner's text will display a continuously animating rainbow gradient.
 - **Enlarged Winner Font**: The font size of the predicted winning team has been increased by 3 times.
@@ -75,3 +76,8 @@ A simple web application that predicts a random winner for the English Premier L
 ### Plan
 1.  **Manual Image Download**: User needs to manually download a football field image (e.g., `football-field.jpg`) and place it in the `assets/images/` directory.
 2.  **Modify `style.css`**: (Completed) Changed the `body` background from the solid color to a football field image, covering the viewport and centered.
+
+## Current Task: Change Background to Chalet Green
+
+### Plan
+1.  **Modify `style.css`**: (Completed) Changed the `body` background from the football field image to a solid Chalet Green background color (#5A6E41).
