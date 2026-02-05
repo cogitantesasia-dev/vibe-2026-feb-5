@@ -107,6 +107,17 @@ class EPLPredictor extends HTMLElement {
     const randomIndex = Math.floor(Math.random() * this.teams.length);
     const predictedTeam = this.teams[randomIndex];
     predictionContainer.textContent = predictedTeam;
+
+    // Trigger confetti if Liverpool is predicted
+    if (predictedTeam === 'Liverpool') {
+      if (window.confetti) {
+        window.confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+    }
   }
 }
 
