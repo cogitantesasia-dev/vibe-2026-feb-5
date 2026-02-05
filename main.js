@@ -117,6 +117,22 @@ class EPLPredictor extends HTMLElement {
           origin: { y: 0.6 }
         });
       }
+    } else if (predictedTeam === 'Manchester United') {
+      // Trigger "poop rain" if Manchester United is predicted
+      if (window.confetti) {
+        window.confetti({
+          particleCount: 70, // Slightly fewer particles
+          spread: 80, // Wider spread
+          origin: { y: 0 }, // Start from the top
+          gravity: 0.8, // Fall faster
+          ticks: 200, // Longer animation duration
+          shapes: ['text'],
+          shapeOptions: {
+            text: ['💩'] // Poop emoji
+          },
+          scalar: 2 // Make emoji bigger
+        });
+      }
     }
   }
 }

@@ -19,6 +19,7 @@ A simple web application that predicts a random winner for the English Premier L
 - Predicts a random Premier League winner from a predefined list of teams.
 - A "Predict Winner" button to generate a new prediction.
 - **Confetti Animation**: Triggers a confetti animation when "Liverpool" is predicted as the winner.
+- **'Poop Rain' Animation**: Triggers a humorous "poop rain" animation when "Manchester United" is predicted as the winner.
 
 ## Current Task: Change Toggle Button to Icon
 
@@ -42,3 +43,8 @@ A simple web application that predicts a random winner for the English Premier L
 ### Plan
 1.  **Modify `index.html`**: (Completed) Added the `canvas-confetti` CDN script.
 2.  **Modify `main.js`**: (Completed) Implemented logic to trigger a confetti animation when "Liverpool" is predicted.
+
+## Current Task: Add 'Poop Rain' Animation for Manchester United
+
+### Plan
+1.  **Modify `main.js`**: (Completed) Implemented logic to trigger a "poop rain" animation when "Manchester United" is predicted.
