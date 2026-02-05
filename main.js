@@ -68,6 +68,72 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // Feedback Form Logic
+  const feedbackButton = document.getElementById('feedback-button');
+  const feedbackModal = document.getElementById('feedback-modal');
+  const closeButton = feedbackModal.querySelector('.close-button');
+  const feedbackForm = document.getElementById('feedback-form');
+  const formStatus = document.getElementById('form-status');
+
+  // Open modal
+  feedbackButton.addEventListener('click', () => {
+    feedbackModal.style.display = 'flex';
+  });
+
+  // Close modal when close button is clicked
+  closeButton.addEventListener('click', () => {
+    feedbackModal.style.display = 'none';
+  });
+
+  // Close modal when clicking outside of it
+  window.addEventListener('click', (event) => {
+    if (event.target === feedbackModal) {
+      feedbackModal.style.display = 'none';
+    }
+  });
+
+  // Handle form submission
+  feedbackForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    formStatus.textContent = 'Sending feedback...';
+    formStatus.style.color = 'var(--text-color)';
+
+    const formData = new FormData(feedbackForm);
+
+    try {
+      const response = await fetch(feedbackForm.action, {
+        method: feedbackForm.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        formStatus.textContent = 'Thank you for your feedback!';
+        formStatus.style.color = 'green';
+        feedbackForm.reset(); // Clear the form
+        setTimeout(() => {
+          feedbackModal.style.display = 'none'; // Close modal after a short delay
+          formStatus.textContent = ''; // Clear status message
+        }, 3000);
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          formStatus.textContent = data.errors.map(error => error.message).join(', ');
+        } else {
+          formStatus.textContent = 'Oops! There was an error sending your feedback.';
+        }
+        formStatus.style.color = 'red';
+      }
+    } catch (error) {
+      formStatus.textContent = 'Oops! There was a network error.';
+      formStatus.style.color = 'red';
+      console.error('Form submission error:', error);
+    }
+  });
 });
 
 class LeaguePredictor extends HTMLElement {

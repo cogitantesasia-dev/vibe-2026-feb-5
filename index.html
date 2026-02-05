@@ -21,6 +21,28 @@
         <span id="icon-placeholder"></span>
       </button>
       <league-predictor></league-predictor>
+      <button id="feedback-button" class="feedback-button">Give Feedback</button>
+    </div>
+  </div>
+
+  <!-- Feedback Modal Structure -->
+  <div id="feedback-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Your Feedback</h2>
+      <form id="feedback-form" action="https://formspree.io/f/xpqjadqe" method="POST">
+        <label for="name">Name (optional):</label>
+        <input type="text" id="name" name="name">
+
+        <label for="email">Email (optional):</label>
+        <input type="email" id="email" name="email">
+
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" required></textarea>
+
+        <button type="submit">Send Feedback</button>
+      </form>
+      <div id="form-status"></div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>

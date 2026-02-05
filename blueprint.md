@@ -30,6 +30,7 @@ A simple web application that predicts a random winner for the English Premier L
 - A "Predict Winner" button to generate a new prediction.
 - **Confetti Animation**: Triggers a confetti animation when "Liverpool" is predicted as the winner.
 - **Dynamic League Prediction**: The predictor now fetches winners from the selected league (English, Spanish, or Italian), updated dynamically on menu button clicks.
+- **User Feedback Form**: A modal form allows users to submit feedback (Name, Email, Message) via Formspree, triggered by a button at the bottom of the right column.
 - **'Poop Rain' Animation**: (Previously implemented, but now replaced) Triggers a humorous "poop rain" animation when "Manchester United" is predicted as the winner.
 - **'Dogs Running' Animation**: Triggers an animation of dogs running across the screen when "Manchester United" is predicted as the winner.
 
@@ -110,3 +111,10 @@ A simple web application that predicts a random winner for the English Premier L
 ### Plan
 1.  **Modify `main.js`**: (Completed) Modified the `LeaguePredictor`'s shadow DOM styles to use `position: sticky` for the prediction area, ensuring it stays at the top.
 2.  **Modify `style.css`**: (Completed) Added specific background and border colors for each league button (`english`, `spanish`, `italian`) to reflect their country's flag colors. Adjusted hover and active states accordingly.
+
+## Current Task: Add User Feedback Form
+
+### Plan
+1.  **Modify `index.html`**: (Completed) Added a "Give Feedback" button to the bottom of the right column and a modal HTML structure for the feedback form.
+2.  **Modify `style.css`**: (Completed) Styled the feedback button and the modal (backdrop, content, form elements, close button).
+3.  **Modify `main.js`**: (Completed) Implemented JavaScript logic to open/close the modal, handle form submission using `fetch` to Formspree, and display status messages.
