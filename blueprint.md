@@ -12,7 +12,7 @@ A simple web application that predicts a random winner for the English Premier L
 - A clean and simple design.
 - **Day and Night Mode**: The application will support both day and night themes, allowing users to toggle between them.
 - **Singapore Flag Background**: (Previously implemented, but now replaced) A Singapore flag image was intended to be used as the background.
-- **Red Gradient Background**: The application now features a linear gradient background from red to dark red, replacing the previous Singapore flag background.
+- **Pastel Gradient Background**: The application now features a linear gradient background from a light pastel pink (#fce4ec) to a light pastel blue (#e3f2fd), replacing the previous red gradient.
 - **Theme Toggle Icon**: The theme toggle button has been replaced with an SVG icon that changes between a sun and moon depending on the current theme.
 
 ### Features
@@ -31,3 +31,8 @@ A simple web application that predicts a random winner for the English Premier L
 
 ### Plan
 1.  **Modify `style.css`**: (Completed) Changed the `body` background from the Singapore flag image and theme-based color to a linear gradient from red to dark red.
+
+## Current Task: Change Background to Pastel Gradient
+
+### Plan
+1.  **Modify `style.css`**: (Completed) Changed the `body` background from the red gradient to a linear gradient from light pastel pink (#fce4ec) to light pastel blue (#e3f2fd).

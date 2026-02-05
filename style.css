@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: linear-gradient(to bottom, red, darkred); /* Gradient red background */
+  background: linear-gradient(to bottom, #fce4ec, #e3f2fd); /* Pastel gradient background */
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
