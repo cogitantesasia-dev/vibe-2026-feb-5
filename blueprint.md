@@ -18,6 +18,8 @@ A simple web application that predicts a random winner for the English Premier L
 - **Two-Column Layout (1:4 Ratio)**: The screen is split into two columns. The left column (1 unit) displays a league selection menu, and the right column (4 units) contains the main predictor application.
 - **League Selection Menu**: A menu in the left column allows users to choose between English, Spanish, and Italian football leagues.
 - **League Dates Display**: Each league button in the menu now displays the season dates.
+- **Fixed Predict Winner Section**: The "Predict Winner" button and prediction display are now fixed to the top of the right column.
+- **Flag-Themed League Buttons**: The league selection buttons are styled with colors representing the respective country flags.
 - **Rainbow Predict Button**: The "Predict Winner" button now has a continuously animating rainbow gradient background.
 - **Rainbow Arsenal Prediction**: When "Arsenal" is predicted, the winner's text will display a continuously animating rainbow gradient.
 - **Enlarged Winner Font**: The font size of the predicted winning team has been increased by 3 times.
@@ -102,3 +104,9 @@ A simple web application that predicts a random winner for the English Premier L
     *   Added `setLeague` method to `LeaguePredictor` to update the active league and clear predictions.
     *   Implemented event listeners for league selection buttons to dynamically update the `LeaguePredictor`'s active league.
     *   Updated conditional animations (confetti, dogs running) to check for `this.activeLeague === 'english'`.
+
+## Current Task: Fix Predict Winner Button to Top and Style League Buttons with Flag Colors
+
+### Plan
+1.  **Modify `main.js`**: (Completed) Modified the `LeaguePredictor`'s shadow DOM styles to use `position: sticky` for the prediction area, ensuring it stays at the top.
+2.  **Modify `style.css`**: (Completed) Added specific background and border colors for each league button (`english`, `spanish`, `italian`) to reflect their country's flag colors. Adjusted hover and active states accordingly.

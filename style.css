@@ -36,7 +36,6 @@ body {
 }
 
 .league-button {
-  background-color: #6C824E; /* A lighter green */
   color: white;
   border: none;
   padding: 10px 15px;
@@ -45,16 +44,52 @@ body {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.2s;
+  display: flex; /* Use flex to align text and small tag */
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .league-button:hover {
-  background-color: #7D935F;
   transform: translateX(5px);
 }
 
-.league-button.active {
-  background-color: #8C9F6D; /* Active state color */
+/* English League (EPL) - Red and White */
+.league-button[data-league="english"] {
+  background-color: #C8102E; /* Red */
+  border: 1px solid #FFFFFF; /* White border */
+}
+
+.league-button[data-league="english"].active {
+  background-color: #012169; /* Dark blue for active */
   font-weight: bold;
+}
+
+/* Spanish League (La Liga) - Red and Yellow */
+.league-button[data-league="spanish"] {
+  background-color: #AA151B; /* Red */
+  border: 1px solid #F1BF00; /* Yellow border */
+}
+
+.league-button[data-league="spanish"].active {
+  background-color: #F1BF00; /* Yellow for active */
+  color: #AA151B; /* Red text on yellow */
+  font-weight: bold;
+}
+
+/* Italian League (Serie A) - Green, White, and Red */
+.league-button[data-league="italian"] {
+  background-color: #008C45; /* Green */
+  border: 1px solid #FFFFFF; /* White border */
+}
+
+.league-button[data-league="italian"].active {
+  background-color: #CD212A; /* Red for active */
+  font-weight: bold;
+}
+
+.league-button small {
+  font-size: 0.7em;
+  opacity: 0.8;
 }
 
 .right-column {

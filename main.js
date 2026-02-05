@@ -77,11 +77,21 @@ class LeaguePredictor extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         :host {
-          display: block;
-          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
           font-family: sans-serif;
-          margin-top: 50px;
           color: var(--text-color); /* Use CSS variable for text color */
+        }
+        .predictor-container {
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          background-color: inherit; /* Inherit background from host for smooth stickiness */
+          padding: 20px;
+          width: 100%;
+          box-sizing: border-box;
+          text-align: center;
         }
         button {
           padding: 10px 20px;
@@ -124,7 +134,7 @@ class LeaguePredictor extends HTMLElement {
           100% { background-position: 0% 50%; }
         }
       </style>
-      <div>
+      <div class="predictor-container">
         <button id="predict-btn">Predict Winner</button>
         <div id="prediction"></div>
       </div>
