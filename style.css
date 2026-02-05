@@ -35,14 +35,22 @@ body[data-theme="night"] {
   position: absolute;
   top: 20px;
   right: 20px;
-  padding: 10px 15px;
-  font-size: 1em;
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   border: 1px solid var(--button-background);
   border-radius: 5px;
   background-color: var(--button-background);
-  color: var(--button-text);
+  color: var(--text-color); /* Use text-color for icon color */
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.theme-toggle-button svg {
+  width: 24px; /* Size of the SVG icon */
+  height: 24px; /* Size of the SVG icon */
 }
 
 .theme-toggle-button:hover {
