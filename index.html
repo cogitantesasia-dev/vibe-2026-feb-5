@@ -7,10 +7,22 @@
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body data-theme="day">
-  <button class="theme-toggle-button" id="theme-toggle">
-    <span id="icon-placeholder"></span>
-  </button>
-  <epl-predictor></epl-predictor>
+  <div class="main-layout">
+    <div class="left-column">
+      <div class="menu-header">Leagues</div>
+      <div class="league-selection">
+        <button class="league-button active" data-league="english">English (EPL)</button>
+        <button class="league-button" data-league="spanish">Spanish (La Liga)</button>
+        <button class="league-button" data-league="italian">Italian (Serie A)</button>
+      </div>
+    </div>
+    <div class="right-column">
+      <button class="theme-toggle-button" id="theme-toggle">
+        <span id="icon-placeholder"></span>
+      </button>
+      <epl-predictor></epl-predictor>
+    </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>

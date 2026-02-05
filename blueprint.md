@@ -15,6 +15,8 @@ A simple web application that predicts a random winner for the English Premier L
 - **Solid Background Color**: (Previously implemented, but now replaced) The application previously featured a solid light grey background color.
 - **Football Field Background**: (Previously implemented, but now replaced) The application previously featured a football field image as its background.
 - **Chalet Green Background Color**: The application now features a solid Chalet Green background color (#5A6E41).
+- **Two-Column Layout (1:4 Ratio)**: The screen is split into two columns. The left column (1 unit) displays a league selection menu, and the right column (4 units) contains the main predictor application.
+- **League Selection Menu**: A menu in the left column allows users to choose between English, Spanish, and Italian football leagues.
 - **Rainbow Predict Button**: The "Predict Winner" button now has a continuously animating rainbow gradient background.
 - **Rainbow Arsenal Prediction**: When "Arsenal" is predicted, the winner's text will display a continuously animating rainbow gradient.
 - **Enlarged Winner Font**: The font size of the predicted winning team has been increased by 3 times.
@@ -81,3 +83,9 @@ A simple web application that predicts a random winner for the English Premier L
 
 ### Plan
 1.  **Modify `style.css`**: (Completed) Changed the `body` background from the football field image to a solid Chalet Green background color (#5A6E41).
+
+## Current Task: Split Screen and Add League Menu
+
+### Plan
+1.  **Modify `index.html`**: (Completed) Introduced a `main-layout` container with `left-column` for the menu and `right-column` for the predictor. Added menu items for English, Spanish, and Italian leagues.
+2.  **Modify `style.css`**: (Completed) Implemented CSS Grid for a 1:4 column layout. Styled the `left-column` and the league selection menu. Adjusted positioning of the theme toggle button.
