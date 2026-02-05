@@ -17,6 +17,7 @@ A simple web application that predicts a random winner for the English Premier L
 - **Chalet Green Background Color**: The application now features a solid Chalet Green background color (#5A6E41).
 - **Two-Column Layout (1:4 Ratio)**: The screen is split into two columns. The left column (1 unit) displays a league selection menu, and the right column (4 units) contains the main predictor application.
 - **League Selection Menu**: A menu in the left column allows users to choose between English, Spanish, and Italian football leagues.
+- **League Dates Display**: Each league button in the menu now displays the season dates.
 - **Rainbow Predict Button**: The "Predict Winner" button now has a continuously animating rainbow gradient background.
 - **Rainbow Arsenal Prediction**: When "Arsenal" is predicted, the winner's text will display a continuously animating rainbow gradient.
 - **Enlarged Winner Font**: The font size of the predicted winning team has been increased by 3 times.
@@ -26,6 +27,7 @@ A simple web application that predicts a random winner for the English Premier L
 - Predicts a random Premier League winner from a predefined list of teams.
 - A "Predict Winner" button to generate a new prediction.
 - **Confetti Animation**: Triggers a confetti animation when "Liverpool" is predicted as the winner.
+- **Dynamic League Prediction**: The predictor now fetches winners from the selected league (English, Spanish, or Italian), updated dynamically on menu button clicks.
 - **'Poop Rain' Animation**: (Previously implemented, but now replaced) Triggers a humorous "poop rain" animation when "Manchester United" is predicted as the winner.
 - **'Dogs Running' Animation**: Triggers an animation of dogs running across the screen when "Manchester United" is predicted as the winner.
 
@@ -89,3 +91,14 @@ A simple web application that predicts a random winner for the English Premier L
 ### Plan
 1.  **Modify `index.html`**: (Completed) Introduced a `main-layout` container with `left-column` for the menu and `right-column` for the predictor. Added menu items for English, Spanish, and Italian leagues.
 2.  **Modify `style.css`**: (Completed) Implemented CSS Grid for a 1:4 column layout. Styled the `left-column` and the league selection menu. Adjusted positioning of the theme toggle button.
+
+## Current Task: Display League Dates and Dynamic Prediction
+
+### Plan
+1.  **Modify `index.html`**: (Completed) Added example season dates below each league name in the menu buttons.
+2.  **Modify `main.js`**: (Completed)
+    *   Renamed `EPLPredictor` to `LeaguePredictor`.
+    *   Refactored `LeaguePredictor` to store team lists for English, Spanish, and Italian leagues.
+    *   Added `setLeague` method to `LeaguePredictor` to update the active league and clear predictions.
+    *   Implemented event listeners for league selection buttons to dynamically update the `LeaguePredictor`'s active league.
+    *   Updated conditional animations (confetti, dogs running) to check for `this.activeLeague === 'english'`.

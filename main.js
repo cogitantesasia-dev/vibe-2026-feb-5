@@ -50,9 +50,27 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', newTheme);
     updateIcon(newTheme);
   });
+
+  // League selection logic
+  const leagueButtons = document.querySelectorAll('.league-button');
+  const leaguePredictor = document.querySelector('league-predictor');
+
+  leagueButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      leagueButtons.forEach(btn => btn.classList.remove('active'));
+      // Add active class to the clicked button
+      button.classList.add('active');
+
+      const selectedLeague = button.dataset.league;
+      if (leaguePredictor && leaguePredictor.setLeague) {
+        leaguePredictor.setLeague(selectedLeague);
+      }
+    });
+  });
 });
 
-class EPLPredictor extends HTMLElement {
+class LeaguePredictor extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
@@ -111,13 +129,36 @@ class EPLPredictor extends HTMLElement {
         <div id="prediction"></div>
       </div>
     `;
-    this.teams = [
-      "Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton",
-      "Chelsea", "Crystal Palace", "Everton", "Fulham", "Liverpool",
-      "Luton Town", "Manchester City", "Manchester United", "Newcastle United",
-      "Nottingham Forest", "Sheffield United", "Tottenham Hotspur", "West Ham United",
-      "Wolverhampton Wanderers", "Burnley"
-    ];
+    this.leagueData = {
+      english: [
+        "Arsenal", "Aston Villa", "Bournemouth", "Brentford", "Brighton",
+        "Chelsea", "Crystal Palace", "Everton", "Fulham", "Liverpool",
+        "Luton Town", "Manchester City", "Manchester United", "Newcastle United",
+        "Nottingham Forest", "Sheffield United", "Tottenham Hotspur", "West Ham United",
+        "Wolverhampton Wanderers", "Burnley"
+      ],
+      spanish: [
+        "Real Madrid", "Barcelona", "Atletico Madrid", "Sevilla", "Real Betis",
+        "Real Sociedad", "Villarreal", "Athletic Bilbao", "Valencia", "Osasuna",
+        "Celta Vigo", "Rayo Vallecano", "Getafe", "Mallorca", "Almeria",
+        "Cadiz", "Granada", "Las Palmas", "Girona", "Deportivo Alaves"
+      ],
+      italian: [
+        "Inter Milan", "AC Milan", "Juventus", "Napoli", "Lazio",
+        "Roma", "Atalanta", "Fiorentina", "Bologna", "Torino",
+        "Monza", "Sassuolo", "Udinese", "Empoli", "Salernitana",
+        "Lecce", "Verona", "Frosinone", "Cagliari", "Genoa"
+      ]
+    };
+    this.activeLeague = 'english'; // Default active league
+  }
+
+  setLeague(newLeague) {
+    this.activeLeague = newLeague;
+    // Clear current prediction when league changes
+    const predictionContainer = this.shadowRoot.getElementById('prediction');
+    predictionContainer.textContent = '';
+    predictionContainer.classList.remove('rainbow-text');
   }
 
   connectedCallback() {
@@ -129,17 +170,18 @@ class EPLPredictor extends HTMLElement {
     // Clear previous rainbow effect
     predictionContainer.classList.remove('rainbow-text');
 
-    const randomIndex = Math.floor(Math.random() * this.teams.length);
-    const predictedTeam = this.teams[randomIndex];
+    const teamsInActiveLeague = this.leagueData[this.activeLeague];
+    const randomIndex = Math.floor(Math.random() * teamsInActiveLeague.length);
+    const predictedTeam = teamsInActiveLeague[randomIndex];
     predictionContainer.textContent = predictedTeam;
 
-    // Apply rainbow effect if Arsenal is predicted
-    if (predictedTeam === 'Arsenal') {
+    // Apply rainbow effect if Arsenal is predicted AND the active league is English
+    if (predictedTeam === 'Arsenal' && this.activeLeague === 'english') {
       predictionContainer.classList.add('rainbow-text');
     }
 
-    // Trigger confetti if Liverpool is predicted
-    if (predictedTeam === 'Liverpool') {
+    // Trigger confetti if Liverpool is predicted AND the active league is English
+    if (predictedTeam === 'Liverpool' && this.activeLeague === 'english') {
       if (window.confetti) {
         window.confetti({
           particleCount: 100,
@@ -147,8 +189,8 @@ class EPLPredictor extends HTMLElement {
           origin: { y: 0.6 }
         });
       }
-    } else if (predictedTeam === 'Manchester United') {
-      // Trigger "dogs running across the screen" if Manchester United is predicted
+    } else if (predictedTeam === 'Manchester United' && this.activeLeague === 'english') {
+      // Trigger "dogs running across the screen" if Manchester United is predicted AND the active league is English
       runDogsAnimation();
     }
   }
@@ -178,5 +220,5 @@ function runDogsAnimation() {
   }
 }
 
-customElements.define('epl-predictor', EPLPredictor);
+customElements.define('league-predictor', LeaguePredictor);
 
