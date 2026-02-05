@@ -88,7 +88,7 @@ class EPLPredictor extends HTMLElement {
         }
         #prediction {
           margin-top: 20px;
-          font-size: 1.8em;
+          font-size: 5.4em; /* 3 times bigger than 1.8em */
           font-weight: bold;
         }
         .rainbow-text {
