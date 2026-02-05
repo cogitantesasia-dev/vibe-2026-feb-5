@@ -13,6 +13,8 @@ A simple web application that predicts a random winner for the English Premier L
 - **Day and Night Mode**: The application will support both day and night themes, allowing users to toggle between them.
 - **Singapore Flag Background**: (Previously implemented, but now replaced) A Singapore flag image was intended to be used as the background.
 - **Solid Background Color**: The application now features a solid light grey background color (#f0f0f0), replacing the previous pastel gradient.
+- **Rainbow Predict Button**: The "Predict Winner" button now has a continuously animating rainbow gradient background.
+- **Rainbow Arsenal Prediction**: When "Arsenal" is predicted, the winner's text will display a continuously animating rainbow gradient.
 - **Theme Toggle Icon**: The theme toggle button has been replaced with an SVG icon that changes between a sun and moon depending on the current theme.
 
 ### Features
@@ -55,3 +57,8 @@ A simple web application that predicts a random winner for the English Premier L
 
 ### Plan
 1.  **Modify `style.css`**: (Completed) Changed the `body` background from the pastel gradient to a solid light grey color (#f0f0f0).
+
+## Current Task: Add Rainbow Effects to Button and Arsenal Prediction
+
+### Plan
+1.  **Modify `main.js`**: (Completed) Updated the shadow DOM styles for the "Predict Winner" button to include a rainbow gradient background with animation. Also added a `rainbow-text` class for text, and implemented logic in `predictWinner` to apply this class to the prediction text if "Arsenal" is the winner.

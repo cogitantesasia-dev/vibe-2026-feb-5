@@ -69,19 +69,41 @@ class EPLPredictor extends HTMLElement {
           padding: 10px 20px;
           font-size: 1.2em;
           cursor: pointer;
-          border: 1px solid var(--button-background); /* Use CSS variable */
+          border: none; /* Remove border for gradient to show fully */
           border-radius: 5px;
-          background-color: var(--button-background); /* Use CSS variable */
-          color: var(--button-text); /* Use CSS variable */
-          transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+          background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3); /* Rainbow gradient */
+          color: white; /* Ensure text is visible on rainbow background */
+          transition: opacity 0.3s;
+          background-size: 200% auto; /* For animation effect */
+          animation: rainbow-button-gradient 5s linear infinite; /* Animation */
         }
         button:hover {
-          opacity: 0.9;
+          opacity: 0.8;
+        }
+        /* Keyframes for rainbow button gradient animation */
+        @keyframes rainbow-button-gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
         #prediction {
           margin-top: 20px;
           font-size: 1.8em;
           font-weight: bold;
+        }
+        .rainbow-text {
+          background-image: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: rainbow-text-gradient 5s linear infinite; /* Animation */
+          background-size: 200% auto; /* For animation effect */
+        }
+        /* Keyframes for rainbow text gradient animation */
+        @keyframes rainbow-text-gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
       </style>
       <div>
@@ -104,9 +126,17 @@ class EPLPredictor extends HTMLElement {
 
   predictWinner() {
     const predictionContainer = this.shadowRoot.getElementById('prediction');
+    // Clear previous rainbow effect
+    predictionContainer.classList.remove('rainbow-text');
+
     const randomIndex = Math.floor(Math.random() * this.teams.length);
     const predictedTeam = this.teams[randomIndex];
     predictionContainer.textContent = predictedTeam;
+
+    // Apply rainbow effect if Arsenal is predicted
+    if (predictedTeam === 'Arsenal') {
+      predictionContainer.classList.add('rainbow-text');
+    }
 
     // Trigger confetti if Liverpool is predicted
     if (predictedTeam === 'Liverpool') {
