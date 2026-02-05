@@ -1,1 +1,53 @@
-/* Add styles here */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Default (Day Mode) Variables */
+body[data-theme="day"] {
+  --background-color: #f0f0f0;
+  --text-color: #333;
+  --button-background: #007bff;
+  --button-text: #fff;
+  --card-background: #fff;
+  --card-border: #ccc;
+}
+
+/* Night Mode Variables */
+body[data-theme="night"] {
+  --background-color: #333;
+  --text-color: #f0f0f0;
+  --button-background: #6f42c1;
+  --button-text: #fff;
+  --card-background: #444;
+  --card-border: #555;
+}
+
+.theme-toggle-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  border: 1px solid var(--button-background);
+  border-radius: 5px;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.theme-toggle-button:hover {
+  opacity: 0.8;
+}
+
+/* Styles for the custom element - these will be overridden by shadow DOM styles but provide a fallback */
+epl-predictor {
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+}
